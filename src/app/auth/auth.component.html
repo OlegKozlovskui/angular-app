@@ -1,0 +1,25 @@
+<div class="container">
+	<list-errors [errors]="errors"></list-errors>
+	<form action="" class="auth-form" [formGroup]="autForm" (ngSubmit)="submitForm()">
+		<h3 class="text-center">{{title}}</h3>
+		<p class="text-center">
+			<a *ngIf="authType === 'login'" routerLink="/registration">Need an account?</a>
+			<a *ngIf="authType !== 'login'" routerLink="/login">Have an account?</a>
+		</p>
+		<div class="form-group" *ngIf="authType !== 'login'">
+			<label>User name</label>
+			<input type="text" class="form-control" formControlName="username" placeholder="Enter username">
+		</div>
+		<div class="form-group">
+			<label>Email address</label>
+			<input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+		</div>
+		<div class="text-right">
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</div>
+	</form>
+</div>
